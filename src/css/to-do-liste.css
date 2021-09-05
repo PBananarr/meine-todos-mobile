@@ -4,33 +4,56 @@
     box-sizing: border-box;
 }
 
-body {
+html {
+  font-size: 100%;
+}
+
+.card-container {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+::placeholder {
+color: rgba(25,25,25, .8);
+font-weight: 700;
 }
 
 .card {
-  border: 2px solid rgba(255, 255, 255, 0.287);
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, .3));
   border-radius: 25px;
   padding: 3rem 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
+  position: relative;
+  z-index: 5;
 }
 .btn-container__header {
   color: transparent;
   text-align: center;
-  background-image: linear-gradient(to bottom, transparent, rgba(255,255,255, 1));
+  background-image: linear-gradient(to bottom, transparent, rgba(25,25,25, 1));
   -webkit-background-clip: text;
   background-clip: text;
+  font-size: 3.5rem;
 }
+
 
 .card__ul li.angeklickt {
     text-decoration: line-through;
+}
+
+.card__ul li {
+  list-style-type: circle;
+  padding-right: 2rem;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: rgba(25,25,25, .8);
 }
 
 /* Button zeugs */
@@ -38,38 +61,37 @@ body {
   position: relative;
   display: inline-block;
   border: none;
+  border-radius: 5px;
   padding: 15px 30px;
   margin: 20px;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 2px;
-  background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
-  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
-  color: #fff;
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
 }
   
 .btn-container__link {
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    /* border: 2px solid rgb(0, 174, 255); */
     border: none;
+    border-radius: 5px;
     margin: 20px;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 2px;
-    background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
     -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
-    color: #fff;
+    color: rgba(25,25,25, .8);
     transition: .25s;
     transition-delay: 0s;
   }
   
   .btn-container__link:hover {
     transition-delay: .25s;
-    color: #000;
+    color: #fff;
     box-shadow: 0 0 10px rgb(0, 174, 255),
     0 0 20px rgb(0, 174, 255),
     0 0 40px rgb(0, 174, 255),
@@ -84,7 +106,7 @@ body {
   }
   
   
-  /* 3 Lines-left (content - background = Linie Mitte; box-shadow = linie oben und unten */
+  /* 3 Lines-left (content bis background = Linie Mitte; box-shadow = linie oben und unten */
   .btn-container__link::before {
     content: "";
     position: absolute;
@@ -94,6 +116,7 @@ body {
     width: 20px;
     height: 2px;
     background: rgb(0, 174, 255);
+    border-radius: 5px;
     box-shadow: 5px -8px 0 rgb(0, 174, 255),
                 5px 8px 0 rgb(0, 174, 255);
     transition: width .15s, left .15s, height .15s, box-shadow .15s;
@@ -104,6 +127,7 @@ body {
    width: 60%;
    height: 100%;
    left: -2px;
+   border-radius: 5px;
    box-shadow: 5px 0 0 rgb(0, 174, 255),
                5px 0 0 rgb(0, 174, 255);
    transition-delay: 0s, .1s, .25s, .25s;
@@ -117,6 +141,7 @@ body {
     transform: translateY(-50%);
     width: 20px;
     height: 2px;
+    border-radius: 5px;
     background: rgb(0, 174, 255);
     box-shadow: -5px -8px 0 rgb(0, 174, 255),
                 -5px 8px 0 rgb(0, 174, 255);
@@ -128,53 +153,38 @@ body {
    width: 60%;
    height: 100%;
    right: -2px;
+   border-radius: 5px;
    box-shadow: -5px 0 0 rgb(0, 174, 255),
                -5px 0 0 rgb(0, 174, 255);
    transition-delay: 0s, .1s, .25s, .25s;
   }
 
-  @media (max-width: 48em) {
-    .card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-flow: column nowrap;
-    }
-    .card__ul li {
-      margin-top: 1.5rem;
-    }
-  }
 
-  @media (max-width: 30em) {
-    .btn-container__link--input {
-      position: relative;
-      display: inline-block;
-      border: none;
+
+@media (max-width: 48em) {
+.card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: column nowrap;
+  min-height: 50vh;
+}
+.card__ul li {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 30em) {
+  .btn-container__link--input {
+    padding: 7px 15px;
+    margin: 10px;
+  }
+    
+  .btn-container__link {
       padding: 7px 15px;
       margin: 10px;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 2px;
-      background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
-      -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
-      color: #fff;
     }
-      
-    .btn-container__link {
-        position: relative;
-        display: inline-block;
-        padding: 7px 15px;
-        border: 2px solid rgb(0, 174, 255);
-        margin: 10px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        letter-spacing: 2px;
-        background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
-        -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
-        color: #fff;
-        transition: .25s;
-        transition-delay: 0s;
-      }
+    .btn-container__header {
+      font-size: 2.5rem;
+    }
   }
+}
