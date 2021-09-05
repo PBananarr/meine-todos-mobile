@@ -12,4 +12,3 @@ let liste = document.getElementById("aufgabenListe");
 liste.addEventListener("click", function(event){
 event.target.classList.toggle("angeklickt");
 });
-

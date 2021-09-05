@@ -5,7 +5,6 @@
 }
 
 body {
-    color: rgb(0, 0, 0, );
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
@@ -16,9 +15,18 @@ body {
 }
 
 .card {
-    display: inline-block;
-    border: 2px solid black;
-    padding: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.287);
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.btn-container__header {
+  color: transparent;
+  text-align: center;
+  background-image: linear-gradient(to bottom, transparent, rgba(255,255,255, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .card__ul li.angeklickt {
@@ -26,13 +34,28 @@ body {
 }
 
 /* Button zeugs */
+.btn-container__link--input {
+  position: relative;
+  display: inline-block;
+  border: none;
+  padding: 15px 30px;
+  margin: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
+  color: #fff;
+}
   
 .btn-container__link {
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    border: 2px solid rgb(0, 174, 255);
-    margin: 40px;
+    /* border: 2px solid rgb(0, 174, 255); */
+    border: none;
+    margin: 20px;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
@@ -108,4 +131,50 @@ body {
    box-shadow: -5px 0 0 rgb(0, 174, 255),
                -5px 0 0 rgb(0, 174, 255);
    transition-delay: 0s, .1s, .25s, .25s;
+  }
+
+  @media (max-width: 48em) {
+    .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+    }
+    .card__ul li {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (max-width: 30em) {
+    .btn-container__link--input {
+      position: relative;
+      display: inline-block;
+      border: none;
+      padding: 7px 15px;
+      margin: 10px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 2px;
+      background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
+      -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
+      color: #fff;
+    }
+      
+    .btn-container__link {
+        position: relative;
+        display: inline-block;
+        padding: 7px 15px;
+        border: 2px solid rgb(0, 174, 255);
+        margin: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: linear-gradient(to right bottom, rgb(22, 70, 158, .8), rgba(16,16,16, .3));
+        -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); /*reflektiert Button nach unten*/
+        color: #fff;
+        transition: .25s;
+        transition-delay: 0s;
+      }
   }
